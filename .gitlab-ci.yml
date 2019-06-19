@@ -1,5 +1,5 @@
 variables:
-  ImageRepo: $CI_REGISTRY/no-fuss-computing/infrastructure/glpi/$CI_COMMIT_REF_SLUG
+  ImageRepo: $CI_REGISTRY/no-fuss-computing/infrastructure/glpi/9.2.1
   ImageTag: latest
   GLPI_CLONE_FOLDER: glpi/glpi
   GLPI_APP_NAME: glpi
