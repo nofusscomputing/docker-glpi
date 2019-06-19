@@ -40,8 +40,8 @@ build:App:
     - docker info
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
   script:
-    - docker build $CI_PROJECT_DIR/$GLPI_APP_NAME/. --tag $ImageRepo/$GLPI_APP_NAME:$GLPI_APP_GIT_TAG
-    - docker push $ImageRepo/$GLPI_APP_NAME:$GLPI_APP_GIT_TAG
+    - docker build $CI_PROJECT_DIR/$GLPI_APP_NAME/. --tag $ImageRepo:$GLPI_APP_GIT_TAG
+    - docker push $ImageRepo:$GLPI_APP_GIT_TAG
   after_script:
     - docker logout $CI_REGISTRY
   tags:
