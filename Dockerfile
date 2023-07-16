@@ -67,6 +67,7 @@ RUN apt update; \
     php7.4-bz2 \
     php7.4-redis \
     \
+    cron \
     supervisor \
     ca-certificates; \
     rm -rf /var/lib/apt/lists/*; \
