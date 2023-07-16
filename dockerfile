@@ -6,7 +6,7 @@ ARG GLPI_VERSION
 
 ENV GLPI_VERSION $GLPI_VERSION
 
-RUN echo "Acquire::http::Proxy \"http://192.168.1.172:3142\";\nAcquire::https::Proxy \"http://192.168.1.172:3142\";" > /etc/apt/apt.conf.d/apt_proxy.conf
+# RUN echo "Acquire::http::Proxy \"http://192.168.1.172:3142\";\nAcquire::https::Proxy \"http://192.168.1.172:3142\";" > /etc/apt/apt.conf.d/apt_proxy.conf
 
 
 RUN apt update; \
