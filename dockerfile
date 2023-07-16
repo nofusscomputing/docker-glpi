@@ -42,7 +42,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV GLPI_VERSION $GLPI_VERSION
 
  
-COPY --from=prepare /etc/apt/apt.conf.d/apt_proxy.conf /etc/apt/apt.conf.d/apt_proxy.conf
+#COPY --from=prepare /etc/apt/apt.conf.d/apt_proxy.conf /etc/apt/apt.conf.d/apt_proxy.conf
   
 COPY --from=prepare /usr/share/keyrings/deb.sury.org-php.gpg /usr/share/keyrings/deb.sury.org-php.gpg
 
