@@ -1,4 +1,6 @@
-## Docker GLPI
+<div align="center" width="100%">
+
+## No Fuss Computing - GLPI in Docker
 
 
 
@@ -12,10 +14,10 @@
 
 
 
-![GitHub forks](https://img.shields.io/github/forks/docker-glpi?logo=github&style=plastic&color=000000&labell=Forks) ![GitHub stars](https://img.shields.io/github/stars/docker-glpi?color=000000&logo=github&style=plastic) ![Github Watchers](https://img.shields.io/github/watchers/docker-glpi?color=000000&label=Watchers&logo=github&style=plastic)
+![GitHub forks](https://img.shields.io/github/forks/NoFussComputing/docker-glpi?logo=github&style=plastic&color=000000&labell=Forks) ![GitHub stars](https://img.shields.io/github/stars/NoFussComputing/docker-glpi?color=000000&logo=github&style=plastic) ![Github Watchers](https://img.shields.io/github/watchers/NoFussComputing/docker-glpi?color=000000&label=Watchers&logo=github&style=plastic)
 <br>
 
-This project is hosted on [gitlab](https://gitlab.com/nofusscomputing/projects/docker-glpi) and has a read-only copy hosted on [Github](https://github.com/docker-glpi).
+This project is hosted on [gitlab](https://gitlab.com/nofusscomputing/projects/docker-glpi) and has a read-only copy hosted on [Github](https://github.com/NoFussComputing/docker-glpi).
 
 ----
 
@@ -39,6 +41,8 @@ links:
 - [Issues](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues)
 
 - [Merge Requests (Pull Requests)](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests)
+
+</div>
 
 ## Documentation
 
