@@ -1,7 +1,0 @@
-glpi/.git*
-glpi/*.yml
-glpi/*.md
-glpi/composer.json
-glpi/AUTHORS.txt
-glpi/LISEZMOI.txt
-glpi/COPYING.txt
