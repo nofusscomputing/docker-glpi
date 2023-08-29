@@ -41,6 +41,29 @@ To see a full list of changes/features see the [changelog](https://gitlab.com/no
 - GLPI WWW root setup under `public/`
 
 
+## Cron
+
+Cron is installed as part of the image and runs automagically on container start. GLPI cron script is also scheduled to run every minute. However for GLPI to use the CLI cron, you must configure it.
+
+Once GLPI has been setup and configured: 
+
+1. navigate to `Setup -> Automatic Actions`
+
+1. select all items in the list
+
+1. click the `Actions` button
+
+1. select `Update`
+
+1. select `Run Mode`
+
+1. select `CLI`
+
+1. click `Submit`
+
+Now GLPI will use the CLI cron script to run automagic actions.
+
+
 ## Inventory
 
 It is posssible to use the inventory features available within GLPI, however by default access to the endpoints is disabled and behind a feature flag.The image by default will return HTTP/404 for the following paths:
@@ -62,7 +85,7 @@ To enable an inventory endpoint, using the values above, set environmental varia
     It is strongly advised that when using the inventory features of GLPI, that the endpoints be configured for client authentication.
 
 
-### Clinet Authentication
+### Client Authentication
 
 Due to the limitations of the inventory agents, mTLS is not available so HTTP Basic Authentication is configurable. by default, when you set the environmental variable `GLPI_INVENTORY_PATH` HTTP basic auth is enabled by default. To configure the users follow these steps:
 
