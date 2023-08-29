@@ -100,3 +100,82 @@ Due to the limitations of the inventory agents, mTLS is not available so HTTP Ba
 
 !!! warning
     HTTP Basic authentication is inherently insecure. to overcome this shortfall, ONLY use HTTP Basic Auth over a secure connection _(https)_. 
+
+
+## Running the container
+
+To quickly setup a container the following `docker-compose.yaml` file could be used.
+
+``` yaml title="docker-compose.yaml" linenums="1"
+version: "3.2"
+
+services:
+
+
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    hostname: mariadb
+    volumes:
+      - /opt/mysql/mysql:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=********
+      - MARIADB_DATABASE=glpi
+      - MARIADB_USER=********
+      - MARIADB_PASSWORD=********
+    restart: always
+
+
+  ingress:
+    image: nginx:latest-alpine
+    container_name : ingress
+    hostname: ingress
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/ingress/conf.d:/etc/nginx/conf.d:ro
+      - /opt/ingress/http:/http:ro
+      - /opt/ingress/ssl:/ssl:ro
+    environment:
+      - TIMEZONE=UTC
+    restart: always
+    networks:
+      - ingress
+      - default
+
+
+  glpi:
+    image: nofusscomputing/docker-glpi:dev
+    container_name : glpi
+    hostname: glpi
+    ports:
+      - "80:80"
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/glpi/plugins:/var/www/html/plugins
+      - /opt/glpi/files:/var/www/html/files
+      - /opt/glpi/config:/var/www/html/config
+      - /opt/glpi/marketplace:/var/www/html/marketplace
+    environment:
+      - TIMEZONE=UTC
+      - GLPI_INVENTORY_PATH=/plugins/glpiinventory/
+    restart: always
+    networks:
+      - default
+
+
+volumes:
+  data_mysql:
+
+
+networks:
+  default:
+    external: no
+  ingress:
+    external: yes
+
+```
