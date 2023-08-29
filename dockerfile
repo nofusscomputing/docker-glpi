@@ -96,6 +96,7 @@ RUN chown www-data:www-data -R /var/www; \
 
 VOLUME /var/www/html/config
 VOLUME /var/www/html/data
+VOLUME /var/www/html/files
 VOLUME /var/www/html/plugins
 VOLUME /var/www/html/marketplacey
 VOLUME /var/log
