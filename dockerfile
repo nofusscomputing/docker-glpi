@@ -88,7 +88,10 @@ COPY --from=prepare /tmp/glpi /var/www/html
 
 
 RUN chown www-data:www-data -R /var/www; \
-  ln -s /var/www/html/bin/console /bin/console;
+  ln -s /var/www/html/bin/console /bin/console; \
+  touch /apache-passwd-glpi-inventory; \
+  chown www-data:www-data /apache-passwd-glpi-inventory; \
+  chmod 740 /apache-passwd-glpi-inventory;
 
 
 VOLUME /var/www/html/config
