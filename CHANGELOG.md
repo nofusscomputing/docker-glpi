@@ -1,3 +1,18 @@
+## 0.1.0 (2023-08-30)
+
+### Bug Fixes
+
+- **dockerfile**: [68851755](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/688517556a748c2ac74d657d573b4ee79a1e48d3) - ensure CA certs available prior to apt install [ [!4](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/4) ]
+- **dockerfile**: [5884c49f](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/5884c49f8aacfc25e5b79e1fe1edb745891b9c85) - silently fail if file doesn't exist on delete [ [!4](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/4) [#3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/3) ]
+
+### Code Refactor
+
+- **docker**: [1973f5e0](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/1973f5e00358be11e2c82ea0fdfb0f32430fa0b6) - dockerfile move php version to arg [ [!4](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/4) [#3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/3) ]
+
+### Features
+
+- **php**: [6278fbb3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/6278fbb3dce77dc01dedcb4cefa91b428eaa9135) - upgrade php to 8.1 [ [!4](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/4) [#3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/3) ]
+
 ## 0.1.0rc1 (2023-08-30)
 
 ### Bug Fixes
