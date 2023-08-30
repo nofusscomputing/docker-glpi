@@ -76,7 +76,7 @@ RUN apt update; \
     ca-certificates; \
     rm -rf /var/lib/apt/lists/*; \
     rm -rf /var/www/html; \
-    rm /etc/apt/apt.conf.d/apt_proxy.conf; \
+    rm -f /etc/apt/apt.conf.d/apt_proxy.conf; \
     a2enmod rewrite;
 
 
