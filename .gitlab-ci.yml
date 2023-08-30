@@ -1,48 +1,39 @@
 variables:
-  ImageRepo: $CI_REGISTRY/no-fuss-computing/infrastructure/glpi/9.2.1
-  ImageTag: latest
-  GLPI_CLONE_FOLDER: glpi/glpi
-  GLPI_APP_NAME: glpi
-  GLPI_APP_CLONE_URL: https://github.com/glpi-project/glpi.git
-  GLPI_APP_GIT_TAG: 9.2.1
-    
-stages:
-  - prepare
-  - build
-  - staging
-  - deploy
-  - clean
+  MY_PROJECT_ID: "12928828"
+  GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/docker-glpi.git"
+  
 
-prepare:Apps:
-  stage: prepare
-  before_script:
-    - rm -fR $GLPI_APP_NAME/$GLPI_APP_NAME
-    - git config --global http.sslVerify "false"
-  script:
-    - git clone --branch $GLPI_APP_GIT_TAG --depth 1 $GLPI_APP_CLONE_URL $GLPI_APP_NAME/$GLPI_APP_NAME
-  artifacts:
-    name: $APP_GIT_TAG
-    expire_in: 1h
-    paths:
-      - $GLPI_APP_NAME/Dockerfile
-      - $GLPI_APP_NAME/.dockerignore
-      - $GLPI_APP_NAME/$GLPI_APP_NAME/*
+  DOCKER_IMAGE_BUILD_TARGET_PLATFORMS: "linux/amd64,linux/arm64,linux/arm/v7"
+  DOCKER_IMAGE_PUBLISH_NAME: 'docker-glpi'
+  DOCKER_IMAGE_PUBLISH_REGISTRY: docker.io/nofusscomputing
+  DOCKER_IMAGE_PUBLISH_URL: https://hub.docker.com/r/nofusscomputing/$DOCKER_IMAGE_PUBLISH_NAME
+  PAGES_ENVIRONMENT_PATH: projects/glpi/
+
+include:
+  - project: nofusscomputing/projects/gitlab-ci
+    ref: development
+    file:
+      - template/automagic.gitlab-ci.yaml
+  #- template: Jobs/Container-Scanning.gitlab-ci.yml # see https://gitlab.com/gitlab-org/gitlab/-/issues/381665
 
 
-build:App:
-  stage: build
-  image: gitlab/dind
-  services:
-    - docker:dind
+Website.Submodule.Deploy:
+  extends: .submodule_update_trigger
   variables:
-    GIT_STRATEGY: none
-  before_script:
-    - docker info
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-  script:
-    - docker build $CI_PROJECT_DIR/$GLPI_APP_NAME/. --tag $ImageRepo:$GLPI_APP_GIT_TAG
-    - docker push $ImageRepo:$GLPI_APP_GIT_TAG
-  after_script:
-    - docker logout $CI_REGISTRY
-  tags:
-   - docker
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/infrastructure/website
+  environment:
+    url: https://nofusscomputing.com/$PAGES_ENVIRONMENT_PATH
+    name: Documentation
+  rules:
+    - if:  # condition_dev_branch_push
+        $CI_COMMIT_BRANCH == "development" && 
+        $CI_PIPELINE_SOURCE == "push"
+      exists:
+        - '{docs/**,pages/**}/*.md'
+      changes:
+        paths:
+          - '{docs/**,pages/**}/*.md'
+        compare_to: 'master'
+      when: always
+
+    - when: never
