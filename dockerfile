@@ -1,11 +1,13 @@
 ARG GLPI_VERSION=10.0.9
+ARG VERSION_PHP=8.1
 
 FROM debian:bullseye-slim as prepare
 
 ARG GLPI_VERSION
+ARG VERSION_PHP
 
 ENV GLPI_VERSION $GLPI_VERSION
-
+ENV VERSION_PHP $VERSION_PHP
 # RUN echo "Acquire::http::Proxy \"http://192.168.1.172:3142\";\nAcquire::https::Proxy \"http://192.168.1.172:3142\";" > /etc/apt/apt.conf.d/apt_proxy.conf
 
 
@@ -35,15 +37,17 @@ FROM debian:bullseye-slim
 
 
 ARG GLPI_VERSION
+ARG VERSION_PHP
 
 
 ENV DEBIAN_FRONTEND noninteractive
 
 ENV GLPI_VERSION $GLPI_VERSION
 
- 
+ENV VERSION_PHP $VERSION_PHP
+
 #COPY --from=prepare /etc/apt/apt.conf.d/apt_proxy.conf /etc/apt/apt.conf.d/apt_proxy.conf
-  
+
 COPY --from=prepare /usr/share/keyrings/deb.sury.org-php.gpg /usr/share/keyrings/deb.sury.org-php.gpg
 
 COPY --from=prepare /etc/apt/sources.list.d/php.list /etc/apt/sources.list.d/php.list
@@ -51,29 +55,33 @@ COPY --from=prepare /etc/apt/sources.list.d/php.list /etc/apt/sources.list.d/php
 
 RUN apt update; \
   apt install --no-install-recommends -y \
-    apache2 \
-    php7.4 \
-    php7.4-mysql \
-    php7.4-ldap \
-    php7.4-xmlrpc \
-    php7.4-imap \
-    php7.4-curl \
-    php7.4-gd \
-    php7.4-mbstring \
-    php7.4-xml \
-    php-cas \
-    php7.4-intl \
-    php7.4-zip \
-    php7.4-bz2 \
-    php7.4-redis \
+    ca-certificates \
     \
     cron \
-    supervisor \
-    ca-certificates; \
-    rm -rf /var/lib/apt/lists/*; \
-    rm -rf /var/www/html; \
-    rm /etc/apt/apt.conf.d/apt_proxy.conf; \
-    a2enmod rewrite;
+    supervisor; \
+  rm -rf /var/lib/apt/lists/*;
+
+RUN apt update; \
+  apt install --no-install-recommends -y \
+    apache2 \
+    php$VERSION_PHP \
+    php$VERSION_PHP-mysql \
+    php$VERSION_PHP-ldap \
+    php$VERSION_PHP-xmlrpc \
+    php$VERSION_PHP-imap \
+    php$VERSION_PHP-curl \
+    php$VERSION_PHP-gd \
+    php$VERSION_PHP-mbstring \
+    php$VERSION_PHP-xml \
+    php-cas \
+    php$VERSION_PHP-intl \
+    php$VERSION_PHP-zip \
+    php$VERSION_PHP-bz2 \
+    php$VERSION_PHP-redis; \
+  rm -rf /var/lib/apt/lists/*; \
+  rm -rf /var/www/html; \
+  rm -f /etc/apt/apt.conf.d/apt_proxy.conf; \
+  a2enmod rewrite;
 
 
 COPY --from=prepare /tmp/glpi /var/www/html
