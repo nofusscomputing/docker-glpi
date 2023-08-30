@@ -47,11 +47,19 @@ ENV GLPI_VERSION $GLPI_VERSION
 ENV VERSION_PHP $VERSION_PHP
 
 #COPY --from=prepare /etc/apt/apt.conf.d/apt_proxy.conf /etc/apt/apt.conf.d/apt_proxy.conf
-  
+
 COPY --from=prepare /usr/share/keyrings/deb.sury.org-php.gpg /usr/share/keyrings/deb.sury.org-php.gpg
 
 COPY --from=prepare /etc/apt/sources.list.d/php.list /etc/apt/sources.list.d/php.list
 
+
+RUN apt update; \
+  apt install --no-install-recommends -y \
+    ca-certificates \
+    \
+    cron \
+    supervisor; \
+  rm -rf /var/lib/apt/lists/*;
 
 RUN apt update; \
   apt install --no-install-recommends -y \
@@ -69,15 +77,11 @@ RUN apt update; \
     php$VERSION_PHP-intl \
     php$VERSION_PHP-zip \
     php$VERSION_PHP-bz2 \
-    php$VERSION_PHP-redis \
-    \
-    cron \
-    supervisor \
-    ca-certificates; \
-    rm -rf /var/lib/apt/lists/*; \
-    rm -rf /var/www/html; \
-    rm -f /etc/apt/apt.conf.d/apt_proxy.conf; \
-    a2enmod rewrite;
+    php$VERSION_PHP-redis; \
+  rm -rf /var/lib/apt/lists/*; \
+  rm -rf /var/www/html; \
+  rm -f /etc/apt/apt.conf.d/apt_proxy.conf; \
+  a2enmod rewrite;
 
 
 COPY --from=prepare /tmp/glpi /var/www/html
