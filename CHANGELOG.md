@@ -1,3 +1,21 @@
+## 0.1.0rc1 (2023-08-30)
+
+### Bug Fixes
+
+- **docker**: [83fbaae1](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/83fbaae1d61bcd9ac73f46373694204c5e7751c8) - added files as volume [ [!3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/3) ]
+
+### Documentaton / Guides
+
+- [711549ba](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/711549ba4c9709c39022d8e87e401f5184637091) - add docker-compose example [ [!3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/3) [#2](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/2) ]
+- [39e47638](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/39e476386a4a88fa6fa175f14085eb0cc3e8e4e4) - add cron [ [!3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/3) [#2](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/2) ]
+- [23886773](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/23886773af9976a06be6296cc4a89986df0cd787) - added initial docs [ [!3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/3) [#2](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/2) ]
+
+### Features
+
+- **inventory**: [04999a8b](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/04999a8b57837d3f30a7df40323b82b4ebb0387b) - Authenticated access [ [!3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/3) [#4](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/4) ]
+- **inventory**: [83b4e98a](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/83b4e98a189d50f5b69d25e8a02f0dee70f012e9) - Enable inventory endpoint with env variable [ [!3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/3) [#4](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/4) ]
+- **inventory**: [3439d1e3](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/3439d1e36184e83e01829db5c0ee97984b350a5a) - block access to inventory endpoints [ [#4](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/issues/4) ]
+
 ## 0.1.0rc0 (2023-07-16)
 
 ### Bug Fixes
