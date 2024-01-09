@@ -1,3 +1,10 @@
+## 0.3.0 (2024-01-09)
+
+### Features
+
+- **php**: [dffc7014](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/dffc70141f46cf7f719aa928bd76aa4e55b67a0d) - Bumped to version 8.2 [ [!13](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/13) ]
+- **glpi**: [4820e30d](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/4820e30d551d904d4781e503ca2c8adb7a336fbd) - Bumped to version 10.0.11 [ [!13](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/13) ]
+
 ## 0.2.0 (2023-10-28)
 
 ### Features
