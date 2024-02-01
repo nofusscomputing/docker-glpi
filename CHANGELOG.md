@@ -1,3 +1,9 @@
+## 0.4.0 (2024-02-01)
+
+### Features
+
+- [0f9b2038](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/0f9b203815e69156fbbd538edf19cf7f22654e4d) - Bump GLPI version to 10.0.12 [ [!13](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/13) ]
+
 ## 0.3.0 (2024-01-09)
 
 ### Features
