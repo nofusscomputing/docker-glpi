@@ -1,3 +1,11 @@
+## 0.5.0 (2024-03-27)
+
+### Features
+
+- [0ccc5eec](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/0ccc5eec3de8773fde1c9cbf0b85ecb3ce66d1c8) - Bump base image debian-bullseye -> debian-bookworm [ [!32](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/32) ]
+- [7c6cc8f9](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/7c6cc8f9736246f62ad7c677a1361a96a4520c0f) - Bump GLPI version 10.0.12 -> 10.0.14 [ [!32](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/32) ]
+- [816c6307](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/816c6307605be92c396f1c3eaabedd414fe56c83) - add custom theme 'nfc' [ [!32](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/merge_requests/32) ]
+
 ## 0.4.0 (2024-02-01)
 
 ### Features
