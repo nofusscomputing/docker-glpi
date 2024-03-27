@@ -1,0 +1,102 @@
+
+$primary: #73bcf7;
+$primary-fg: #f0f0f0;
+
+$secondary: #7e7e7e;
+$secondary-fg: #73ff00;
+
+$dark: #212427;
+$light: #f0f0f0;
+
+$link-color: #0066cc;
+$mainmenu_bg: #212427;
+$mainmenu_fg: #f0f0f0;
+$accent-color: #73bcf7;
+$text-muted: #666666;
+
+
+@import "../includes/palette_light";
+
+
+/*
+* ---------------------------------------------------------------------
+* CSS
+* ---------------------------------------------------------------------
+*/
+.navbar-vertical.navbar-expand-lg {
+    width: 275px
+}
+
+.navbar-expand-lg.navbar-vertical ~ .navbar, .navbar-expand-lg.navbar-vertical ~ .page-wrapper {
+    margin-left: 275px;
+}
+
+.navbar-light {
+    //box-shadow: inset 0 -1px 0 0 rgba(98, 105, 118, 0.16);
+    background-color: #151515;
+}
+
+
+.navbar {
+    min-height: 76px;
+}
+
+
+span.input-group-text {
+    visibility: hidden;
+    border-radius: 4px;
+}
+
+
+
+// Header Entity button
+.navbar .text-muted {
+    color: $accent-color !important;
+    opacity: 70%;
+  }
+
+
+body {
+    --tblr-body-bg: #f0f0f0;
+}
+
+@include media-breakpoint-up(lg) {
+    body.navbar-collapsed {
+        .sidebar {
+            #navbar-menu {
+                .nav-item {
+                    .nav-link {
+                        & + .dropdown-menu {
+                            
+                            color: $accent-color;
+                            border: 1px solid $accent-color;
+
+                            .dropdown-item {
+                                &.hover {
+                                    border-left-color: $accent-color;
+                                }
+
+                                &.active {
+                                    background-color: lighten($mainmenu-bg, 40%);
+                                    border-left-color: $accent-color;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+.dashboard {
+
+    .card {
+        box-shadow: none !important;
+
+        margin: 0 !important;
+        border-radius: 5px !important;
+    }
+
+}
