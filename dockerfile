@@ -1,7 +1,7 @@
 ARG GLPI_VERSION=10.0.14
 ARG VERSION_PHP=8.2
 
-FROM debian:bullseye-slim as prepare
+FROM debian:bookworm-slim as prepare
 
 ARG GLPI_VERSION
 ARG VERSION_PHP
@@ -33,7 +33,7 @@ RUN export GLPI_URL=$(curl -s https://api.github.com/repos/glpi-project/glpi/rel
   tar -xzf /tmp/${TAR_FILENAME} -C /tmp;
 
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 
 ARG GLPI_VERSION
