@@ -1,4 +1,4 @@
-ARG GLPI_VERSION=10.0.12
+ARG GLPI_VERSION=10.0.14
 ARG VERSION_PHP=8.2
 
 FROM debian:bullseye-slim as prepare
