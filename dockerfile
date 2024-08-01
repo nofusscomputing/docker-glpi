@@ -1,4 +1,4 @@
-ARG GLPI_VERSION=10.0.15
+ARG GLPI_VERSION=10.0.16
 ARG VERSION_PHP=8.2
 
 FROM debian:bookworm-slim as prepare
@@ -34,6 +34,13 @@ RUN export GLPI_URL=$(curl -s https://api.github.com/repos/glpi-project/glpi/rel
 
 
 FROM debian:bookworm-slim
+
+LABEL \
+  org.opencontainers.image.vendor="No Fuss Computing" \
+  org.opencontainers.image.title="GLPI" \
+  org.opencontainers.image.description="GLPI Within a docker container" \
+  org.opencontainers.image.vendor="No Fuss Computing" \
+  io.artifacthub.package.license="MIT"
 
 
 ARG GLPI_VERSION
