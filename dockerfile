@@ -1,4 +1,4 @@
-ARG GLPI_VERSION=10.0.16
+ARG GLPI_VERSION=10.0.20
 ARG VERSION_PHP=8.2
 
 FROM debian:bookworm-slim as prepare
