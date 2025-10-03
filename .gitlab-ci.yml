@@ -8,6 +8,7 @@ variables:
   DOCKER_IMAGE_PUBLISH_REGISTRY: docker.io/nofusscomputing
   DOCKER_IMAGE_PUBLISH_URL: https://hub.docker.com/r/nofusscomputing/$DOCKER_IMAGE_PUBLISH_NAME
   PAGES_ENVIRONMENT_PATH: projects/glpi/
+  PIP_BREAK_SYSTEM_PACKAGES: '1'
 
 include:
   - project: nofusscomputing/projects/gitlab-ci
