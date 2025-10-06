@@ -1,3 +1,14 @@
+## 0.8.0 (2025-10-06)
+
+### Features
+
+- [c54fad72](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/c54fad723be85b5e0d5147aa0d4f8cb8e34255cf) - tell python to ignore managed env again again again
+- [ff523345](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/ff5233459054305944d4437ec6315f0aa4e94839) - tell python to ignore managed env again again
+- [10127a48](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/10127a48fe51cded75418e716eb859e2bd553439) - teel python to ignore managed env again
+- [59d80d3b](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/59d80d3b153b1a6cc521c2fd14c50ecddc7b7178) - teel pythonto ignore managed env
+- [40a7cae0](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/40a7cae05c19f5a921c4e4cc2affe5f1d65b41d6) - update head
+- [935d8a5c](https://gitlab.com/nofusscomputing/projects/docker-glpi/-/commit/935d8a5c7bb56635e5820aa49fdc0a68b805460a) - update glpi 10.0.16 -> 10.0.20
+
 ## 0.7.0 (2024-08-01)
 
 ### Features
